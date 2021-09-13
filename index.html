@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Beer API App - Made with JavaScript" />
+    <!-- Fav Icon -->
+    <link rel="icon" type="image/png" href="./logo.png" />
+    <!-- External CSS  -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <!-- Title -->
+    <title>Beer API APP</title>
+  </head>
+  <body>
+    <main>
+      <!-- Filter Area -->
+      <section class="filter-area"></section>
+
+      <!-- Test Sidebar -->
+      <section class="mainsite" id="mainsite">
+        <nav class="sidenav">
+          <div class="menu">
+            <div class="menu-logo">
+              <img src="./logo.png" alt="Logo" /> <span>Beer API APP</span>
+            </div>
+            <ul class="menu-list">
+              <li class="menu-item">
+                <a href="#" class="menu-title">
+                  <i class="fas fa-wine-bottle"></i>Alcohol Vol (ABV):
+                </a>
+              </li>
+              <li class="menu-item">
+                <a href="#" class="menu-link">Menu Item</a>
+              </li>
+              <li class="menu-item">
+                <a href="#" class="menu-link">Menu Item</a>
+              </li>
+              <li class="menu-item">
+                <a href="#" class="menu-link">Menu Item</a>
+              </li>
+              <li class="menu-item">
+                <a href="#" class="menu-link">Menu Item</a>
+              </li>
+              <li class="menu-item">
+                <a href="#" class="menu-link">Menu Item</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <!-- Main content -->
+        <main class="mainpage" id="mainpage">
+          <!-- Burger Menu -->
+          <div class="burger" id="burger">
+            <div class="burger-menu"></div>
+          </div>
+
+          <!-- Header -->
+          <div class="navbar">
+            <span class="navbar-title">Let's drink beer!</span>
+
+            <!-- Search bar -->
+            <div class="searchbar">
+              <input
+                type="text"
+                class="active"
+                placeholder="Search Beers..."
+                name="search"
+              />
+              <div class="icon" class="active">
+                <i class="fas fa-search"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="container">
+            <div class="wrapper"></div>
+          </div>
+        </main>
+      </section>
+    </main>
+
+    <!-- JavaScript Files -->
+    <script type="text/javascript" src="./app.js"></script>
+  </body>
+</html>
