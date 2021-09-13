@@ -29,26 +29,90 @@
               <img src="./logo.png" alt="Logo" /> <span>Beer API APP</span>
             </div>
             <ul class="menu-list">
+              <!-- Alcohol Menu -->
               <li class="menu-item">
                 <a href="#" class="menu-title">
                   <i class="fas fa-wine-bottle"></i>Alcohol Vol (ABV):
                 </a>
               </li>
               <li class="menu-item">
-                <a href="#" class="menu-link">Menu Item</a>
+                <a href="#" class="menu-link">Weak Alcohol</a>
               </li>
               <li class="menu-item">
-                <a href="#" class="menu-link">Menu Item</a>
+                <a href="#" class="menu-link">Medium Alcohol</a>
               </li>
               <li class="menu-item">
-                <a href="#" class="menu-link">Menu Item</a>
+                <a href="#" class="menu-link">Strong Alcohol</a>
               </li>
               <li class="menu-item">
-                <a href="#" class="menu-link">Menu Item</a>
+                <a href="#" class="menu-link">Low to High Alcohol</a>
               </li>
               <li class="menu-item">
-                <a href="#" class="menu-link">Menu Item</a>
+                <a href="#" class="menu-link">High to Low Alcohol</a>
               </li>
+
+              <!-- Filter -->
+              <section class="range-slider">
+                <span class="range-text">(ABV): </span>
+                <span class="range-values"></span>
+                <input
+                  value="5.5"
+                  min="4.5"
+                  max="12.5"
+                  step="0.1"
+                  type="range"
+                />
+                <input
+                  value="7.5"
+                  min="4.5"
+                  max="12.5"
+                  step="0.1"
+                  type="range"
+                />
+              </section>
+
+              <!--  Bitterness Menu -->
+              <li class="menu-item">
+                <a href="#" class="menu-title">
+                  <i class="fas fa-beer"></i>Bitterness Vol (IBU):
+                </a>
+              </li>
+              <li class="menu-item">
+                <a href="#" class="menu-link">Weak Bitterness</a>
+              </li>
+              <li class="menu-item">
+                <a href="#" class="menu-link">Medium Bitterness</a>
+              </li>
+              <li class="menu-item">
+                <a href="#" class="menu-link">Strong Bitterness</a>
+              </li>
+              <li class="menu-item">
+                <a href="#" class="menu-link">Low to High Bitterness</a>
+              </li>
+              <li class="menu-item">
+                <a href="#" class="menu-link">High to Low Bitterness</a>
+              </li>
+
+              <!-- Filter -->
+              <section class="range-slider">
+                <span class="range-text">(IBU): </span>
+                <span class="range-values"></span>
+                <input value="55" min="25" max="100" step="5" type="range" />
+                <input value="75" min="25" max="100" step="5" type="range" />
+              </section>
+
+              <!-- Pagination -->
+              <div class="pagination">
+              <li class="menu-item">
+                <span id="prevPage" class="menu-title" disabled>
+                  <i class="fas fa-arrow-circle-left"></i>
+                </span>
+                <span class="menu-page">Page: 1</span></span>
+                <span id="nextPage" class="menu-title">
+                  <i class="fas fa-arrow-circle-right"></i>
+                </span>
+              </li>
+            </div>
             </ul>
           </div>
         </nav>

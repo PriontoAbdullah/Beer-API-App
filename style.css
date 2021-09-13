@@ -159,17 +159,18 @@ img {
   padding-right: 17rem;
 }
 
-.navbar .navbar-title {
+.navbar-title {
   float: left;
   display: block;
   color: #ffffff;
   padding: 1rem;
   font-size: 1.2rem;
   font-weight: 600;
+  margin-left: 1rem;
 }
 
 @media screen and (max-width: 767px) {
-  .navbar .navbar-title {
+  .navbar-title {
     padding: 0.5rem;
   }
 }
@@ -326,7 +327,7 @@ img {
   top: 0;
   left: 0;
   bottom: 0;
-  width: 15rem;
+  width: 16rem;
   z-index: 3;
   background: #252a32;
 }
@@ -341,7 +342,7 @@ img {
   position: fixed;
   top: 0;
   bottom: 0;
-  width: -45rem;
+  width: -44rem;
   margin: 0;
   padding-left: 1.5rem;
   overflow: auto;
@@ -373,6 +374,7 @@ img {
 
 .sidenav .menu-title i {
   margin-right: 0.5rem;
+  margin-top: 1rem;
 }
 
 .sidenav .menu-title:hover {
@@ -382,9 +384,17 @@ img {
 
 .sidenav .menu-item {
   padding: 0;
-  margin: 1rem auto;
+  margin: 0.5rem auto;
   -webkit-transition: all 0.35s ease;
   transition: all 0.35s ease;
+}
+
+.sidenav .menu-page {
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.2rem;
+  color: #f1f5f8;
+  padding: 0 1.3rem;
 }
 
 .sidenav .menu-link {
@@ -402,4 +412,107 @@ img {
 .sidenav .menu-link:hover {
   opacity: 1;
   color: #ff7518;
+}
+
+.sidenav .menu .pagination {
+  margin-top: 4rem;
+  cursor: pointer;
+}
+
+.sidenav .range {
+  color: #ff6347;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.sidenav .range-text {
+  color: #f1f5f8;
+}
+
+.sidenav .range-values {
+  color: #ff6347;
+  font-weight: 600;
+}
+
+.sidenav .range-slider {
+  position: relative;
+  width: 12rem;
+  height: 3.12rem;
+  float: left;
+  text-align: center;
+}
+
+.sidenav .range-slider input[type='range'] {
+  pointer-events: none;
+  position: absolute;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  border: none;
+  border-radius: 0.875rem;
+  background: #ffffe5;
+  box-shadow: inset 0 1px 0 0 #cccc00, inset 0 -1px 0 0 #ffffb2;
+  -webkit-box-shadow: inset 0 1px 0 0 #cccc00, inset 0 -1px 0 0 #ffffb2;
+  overflow: hidden;
+  left: 0;
+  top: 1.875rem;
+  width: 12rem;
+  outline: none;
+  height: 1.125rem;
+  margin: 0;
+  padding: 0;
+}
+
+.sidenav .range-slider input[type='range']::-webkit-slider-thumb {
+  pointer-events: all;
+  position: relative;
+  z-index: 1;
+  outline: 0;
+  -webkit-appearance: none;
+  width: 1.125rem;
+  height: 1.125rem;
+  border: none;
+  border-radius: 0.875rem;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(white), to(#ff5100));
+  background-image: linear-gradient(to bottom, white, #ff5100 100%);
+}
+
+.sidenav .range-slider input[type='range']::-moz-range-thumb {
+  pointer-events: all;
+  position: relative;
+  z-index: 10;
+  -moz-appearance: none;
+  width: 1.125rem;
+  height: 1.125rem;
+  border: none;
+  border-radius: 0.875rem;
+  background-image: linear-gradient(to bottom, white, #ff5100 100%);
+}
+
+.sidenav .range-slider input[type='range']::-ms-thumb {
+  pointer-events: all;
+  position: relative;
+  z-index: 10;
+  -ms-appearance: none;
+  width: 1.125rem;
+  height: 1.125rem;
+  border-radius: 0.875rem;
+  border: 0;
+  background-image: linear-gradient(to bottom, white, #ff5100 100%);
+}
+
+.sidenav .range-slider input[type='range']::-moz-range-track {
+  position: relative;
+  z-index: -1;
+  background-color: black;
+  border: 0;
+}
+
+.sidenav .range-slider input[type='range']:last-of-type::-moz-range-track {
+  -moz-appearance: none;
+  background: none transparent;
+  border: 0;
+}
+
+.sidenav .range-slider input[type='range']::-moz-focus-outer {
+  border: 0;
 }
