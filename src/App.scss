@@ -1,0 +1,147 @@
+// Import Partials
+@import './components/partials/variables';
+@import './components/partials/mixins';
+
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600&display=swap');
+
+// Universal Selectors
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+  list-style-type: none;
+  text-decoration: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+// Default styles
+body,
+html {
+  height: 100%;
+  width: 100%;
+  font-family: 'Open Sans', sans-serif;
+  color: $text-color;
+  background-color: $background-color;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.5;
+}
+
+a,
+button {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+// Body Content
+.mainSite {
+  max-width: 100%;
+  height: auto;
+  z-index: 1;
+  margin: 0 auto;
+  background-color: $color-black;
+
+  &:before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    display: block;
+    background-color: $color-black;
+    z-index: 1;
+  }
+
+  .mainPage {
+    position: relative;
+    margin-left: 15rem;
+    min-height: 100%;
+    z-index: 2;
+    color: $color-black;
+    background-color: $background-color;
+    box-shadow: $box-shadow;
+    transition: all 0.35s ease;
+  }
+
+  @include mediumScreen {
+    .mainPage {
+      margin-left: 0;
+      z-index: 3;
+    }
+
+    &.active {
+      overflow: hidden;
+
+      .mainPage {
+        transform: translateX(15rem);
+      }
+    }
+  }
+}
+
+// Main Content
+.container {
+  max-width: 80rem;
+  width: 100%;
+  height: auto;
+  padding: 0 2rem;
+  margin: 0 auto;
+}
+
+.wrapper {
+  width: 100%;
+  min-height: 100vh;
+  padding: 1.5rem 0;
+  margin: 0;
+
+  @include mediumScreen {
+    padding: 4rem 0 2rem 0;
+    margin: 0;
+  }
+
+  @include smallScreen {
+    padding-top: 10rem;
+  }
+}
+
+.title {
+  font-family: inherit;
+  line-height: inherit;
+  text-transform: capitalize;
+  text-rendering: optimizeLegibility;
+
+  &-medium {
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: $color-black;
+  }
+}
+
+.paragraph {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: inherit;
+  margin: 0.75rem 0;
+  color: $color-black;
+  text-transform: unset;
+  text-rendering: optimizeLegibility;
+}

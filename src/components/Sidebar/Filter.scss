@@ -1,0 +1,139 @@
+@import '../partials/variables';
+
+// Filter
+.range {
+  color: $color-secondary;
+  font-size: 1rem;
+  font-weight: bold;
+
+  &-text {
+    color: $color-light;
+  }
+
+  &-values {
+    color: $color-secondary;
+    font-weight: 600;
+  }
+}
+
+// Range Slider
+@mixin range-slider(
+  $width,
+  $height,
+  $input-top,
+  $input-bg-color,
+  $input-thumb-color,
+  $float: none,
+  $input-height: 1.125rem,
+  $input-border-radius: 0.875rem
+) {
+  position: relative;
+  width: $width;
+  height: $height;
+  float: $float;
+  text-align: center;
+
+  input[type='range'] {
+    pointer-events: none;
+    position: absolute;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    border: none;
+    border-radius: $input-border-radius;
+    background: $input-bg-color;
+    box-shadow: inset 0 1px 0 0 darken($input-bg-color, 55%),
+      inset 0 -1px 0 0 darken($input-bg-color, 10%);
+    -webkit-box-shadow: inset 0 1px 0 0 darken($input-bg-color, 55%),
+      inset 0 -1px 0 0 darken($input-bg-color, 10%);
+    overflow: hidden;
+    left: 0;
+    top: $input-top;
+    width: $width;
+    outline: none;
+    height: $input-height;
+    margin: 0;
+    padding: 0;
+  }
+
+  input[type='range']::-webkit-slider-thumb {
+    pointer-events: all;
+    position: relative;
+    z-index: 1;
+    outline: 0;
+    -webkit-appearance: none;
+    width: $input-height;
+    height: $input-height;
+    border: none;
+    border-radius: $input-border-radius;
+    background-image: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      color-stop(0%, lighten($input-thumb-color, 90%)),
+      color-stop(100%, $input-thumb-color)
+    );
+    background-image: -webkit-linear-gradient(
+      top,
+      lighten($input-thumb-color, 90%),
+      $input-thumb-color 100%
+    );
+    background-image: linear-gradient(
+      to bottom,
+      lighten($input-thumb-color, 90%),
+      $input-thumb-color 100%
+    );
+  }
+
+  input[type='range']::-moz-range-thumb {
+    pointer-events: all;
+    position: relative;
+    z-index: 10;
+    -moz-appearance: none;
+    width: $input-height;
+    height: $input-height;
+    border: none;
+    border-radius: $input-border-radius;
+    background-image: linear-gradient(
+      to bottom,
+      lighten($input-thumb-color, 90%),
+      $input-thumb-color 100%
+    );
+  }
+
+  input[type='range']::-ms-thumb {
+    pointer-events: all;
+    position: relative;
+    z-index: 10;
+    -ms-appearance: none;
+    width: $input-height;
+    height: $input-height;
+    border-radius: $input-border-radius;
+    border: 0;
+    background-image: linear-gradient(
+      to bottom,
+      lighten($input-thumb-color, 90%),
+      $input-thumb-color 100%
+    );
+  }
+
+  input[type='range']::-moz-range-track {
+    position: relative;
+    z-index: -1;
+    background-color: rgba(0, 0, 0, 1);
+    border: 0;
+  }
+
+  input[type='range']:last-of-type::-moz-range-track {
+    -moz-appearance: none;
+    background: none transparent;
+    border: 0;
+  }
+
+  input[type='range']::-moz-focus-outer {
+    border: 0;
+  }
+}
+
+.range-slider {
+  @include range-slider(12rem, 3.12rem, 1.875rem, #ffffe5, #ff5100, left);
+}

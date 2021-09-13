@@ -1,0 +1,163 @@
+@import '../partials/variables';
+@import '../partials/mixins';
+
+// Header
+.navbar {
+  background-color: $color-secondary;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 3.75rem;
+  padding-right: 17rem;
+
+  &-title {
+    float: left;
+    display: block;
+    color: $color-white;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-left: 1rem;
+
+    @include smallScreen {
+      padding: 0.5rem;
+    }
+  }
+
+  // Search Bar
+  .searchbar {
+    position: relative;
+
+    input[type='text'] {
+      width: 17rem;
+      height: 2.2rem;
+      border-radius: 1.5rem;
+      border: none;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      letter-spacing: 0.06rem;
+      transition: all 0.5s 0.2s ease;
+
+      &:focus {
+        outline: none;
+      }
+
+      @include smallScreen {
+        width: 14rem;
+      }
+    }
+
+    .icon {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 35px;
+      height: 100%;
+      color: $color-white;
+      transition: all 0.5s 0.3s ease;
+      background-color: $color-secondary;
+
+      @include smallScreen {
+        margin-right: -40px;
+      }
+    }
+
+    span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+    }
+  }
+
+  @include smallScreen {
+    padding: 0;
+    flex-direction: column;
+    height: 8rem;
+    justify-content: center;
+  }
+}
+
+// Burger Menu
+.burger {
+  display: none;
+  position: fixed;
+  cursor: pointer;
+  top: 1.5rem;
+  left: 2rem;
+  width: 24px;
+  height: 24px;
+  z-index: 10;
+
+  @include mediumScreen {
+    display: block;
+  }
+
+  &-menu {
+    position: relative;
+    width: 24px;
+    height: 4px;
+    margin: 10px 0;
+    border-radius: 4px;
+    background-color: $color-white;
+    transition: all 0.35s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    &:before,
+    &:after {
+      position: absolute;
+      display: block;
+      content: '';
+      width: 24px;
+      height: 4px;
+      border-radius: 4px;
+      background-color: $color-white;
+      transition: all 0.35s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    &:before {
+      top: -8px;
+      left: 0;
+      width: 24px;
+    }
+
+    &:after {
+      top: 8px;
+      width: 24px;
+      left: 0;
+    }
+  }
+
+  &:hover {
+    .burger-menu:before,
+    .burger-menu:after {
+      width: 24px;
+    }
+  }
+
+  &.active {
+    .burger-menu {
+      background: none;
+    }
+    .burger-menu:before,
+    .burger-menu:after {
+      top: 0;
+      width: 24px;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+    .burger-menu:after {
+      -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+    }
+    .burger-menu:hover {
+      -webkit-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+      transform: scale(1.2);
+    }
+  }
+}

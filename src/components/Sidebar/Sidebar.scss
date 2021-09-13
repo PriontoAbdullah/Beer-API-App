@@ -1,0 +1,93 @@
+@import '../partials/variables';
+@import '../partials/mixins';
+
+// Side Nav Bar
+.sideNav {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 16rem;
+  z-index: 3;
+  background: $color-black;
+
+  @include mediumScreen {
+    z-index: 2;
+  }
+
+  .menu {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: (16rem - 60);
+    margin: 0;
+    padding-left: 1.5rem;
+    overflow: auto;
+
+    &-logo {
+      display: flex;
+      align-items: center;
+      color: $color-secondary;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-top: 1rem;
+
+      img {
+        width: 2rem;
+        height: 2.5rem;
+      }
+    }
+
+    &-title {
+      color: $color-primary;
+      font-size: 1.2rem;
+      font-weight: 600;
+
+      span {
+        margin-right: 0.5rem;
+        margin-top: 1rem;
+      }
+
+      &:hover {
+        opacity: 1;
+        color: $color-secondary;
+      }
+    }
+
+    &-item {
+      padding: 0;
+      margin: 0.5rem auto;
+      transition: all 0.35s ease;
+    }
+
+    &-page {
+      font-size: 1.2rem;
+      font-weight: 500;
+      letter-spacing: 0.2rem;
+      color: $color-light;
+      padding: 0 1.3rem;
+    }
+
+    &-link {
+      display: block;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.05rem;
+      opacity: 0.7;
+      color: $color-white;
+      transition: all 0.35s ease;
+
+      &:hover {
+        opacity: 1;
+        color: $color-primary;
+      }
+    }
+
+    .pagination {
+      margin-top: 4rem;
+      cursor: pointer;
+    }
+  }
+}
