@@ -1,56 +1,83 @@
 import {
   faArrowCircleLeft,
   faArrowCircleRight,
+  faBars,
   faBeer,
+  faTimes,
   faWineBottle,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useState } from 'react';
 import logo from '../../images/logo.png';
 import './Filter.scss';
 import './Sidebar.scss';
 
-const Sidebar = () => {
+const Sidebar = ({
+  allABVBeers,
+  sortByABV,
+  sortByABVReverse,
+  sortByMidABV,
+  sortByLowABV,
+  sortByHighABV,
+  allIBUBeers,
+  sortByIBU,
+  sortByIBUReverse,
+  sortByMidIBU,
+  sortByLowIBU,
+  sortByHighIBU,
+  page,
+}) => {
+  const [mobileMenu, setMobileMenu] = useState(false);
+
+  const toggleMenu = () => {
+    setMobileMenu(!mobileMenu);
+  };
+
+  const getIcon = () => {
+    return mobileMenu ? (
+      <FontAwesomeIcon icon={faTimes} />
+    ) : (
+      <FontAwesomeIcon icon={faBars} />
+    );
+  };
+
   return (
-    <nav className="sideNav">
+    <nav
+      className={`sideNav ${mobileMenu ? 'isMobileOpen' : 'isMobileClosed'}`}
+    >
       <div className="menu">
         <div className="menu-logo">
           <img src={logo} alt="Logo" /> <span>Beer API APP</span>
+          <span className="mobileMenu" onClick={() => toggleMenu()}>
+            {getIcon()}
+          </span>
         </div>
         <ul className="menu-list">
           {/* Alcohol Menu  */}
-          <li className="menu-item">
-            <a href="#0" className="menu-title">
+          <li className="menu-item" onClick={allABVBeers}>
+            <span className="menu-title">
               <span>
                 <FontAwesomeIcon icon={faWineBottle} />
               </span>
               Alcohol Vol (ABV):
-            </a>
+            </span>
+          </li>
+          <li className="menu-item" onClick={sortByLowABV}>
+            <span className="menu-link">Weak Alcohol</span>
+          </li>
+          <li className="menu-item" onClick={sortByMidABV}>
+            <span className="menu-link">Medium Alcohol</span>
           </li>
           <li className="menu-item">
-            <a href="#0" className="menu-link">
-              Weak Alcohol
-            </a>
-          </li>
-          <li className="menu-item">
-            <a href="#0" className="menu-link">
-              Medium Alcohol
-            </a>
-          </li>
-          <li className="menu-item">
-            <a href="#0" className="menu-link">
+            <span className="menu-link" onClick={sortByHighABV}>
               Strong Alcohol
-            </a>
+            </span>
           </li>
-          <li className="menu-item">
-            <a href="#0" className="menu-link">
-              Low to High Alcohol
-            </a>
+          <li className="menu-item" onClick={sortByABV}>
+            <span className="menu-link">Low to High Alcohol</span>
           </li>
-          <li className="menu-item">
-            <a href="#0" className="menu-link">
-              High to Low Alcohol
-            </a>
+          <li className="menu-item" onClick={sortByABVReverse}>
+            <span className="menu-link">High to Low Alcohol</span>
           </li>
 
           {/* Alcohol Filter  */}
@@ -74,38 +101,28 @@ const Sidebar = () => {
           </div>
 
           {/* Bitterness Menu */}
-          <li className="menu-item">
-            <a href="#0" className="menu-title">
+          <li className="menu-item" onClick={allIBUBeers}>
+            <span className="menu-title">
               <span>
                 <FontAwesomeIcon icon={faBeer} />
               </span>
               Bitterness Vol (IBU):
-            </a>
+            </span>
           </li>
-          <li className="menu-item">
-            <a href="#0" className="menu-link">
-              Weak Bitterness
-            </a>
+          <li className="menu-item" onClick={sortByLowIBU}>
+            <span className="menu-link">Weak Bitterness</span>
           </li>
-          <li className="menu-item">
-            <a href="#0" className="menu-link">
-              Medium Bitterness
-            </a>
+          <li className="menu-item" onClick={sortByMidIBU}>
+            <span className="menu-link">Medium Bitterness</span>
           </li>
-          <li className="menu-item">
-            <a href="#0" className="menu-link">
-              Strong Bitterness
-            </a>
+          <li className="menu-item" onClick={sortByHighIBU}>
+            <span className="menu-link">Strong Bitterness</span>
           </li>
-          <li className="menu-item">
-            <a href="#0" className="menu-link">
-              Low to High Bitterness
-            </a>
+          <li className="menu-item" onClick={sortByIBU}>
+            <span className="menu-link">Low to High Bitterness</span>
           </li>
-          <li className="menu-item">
-            <a href="#0" className="menu-link">
-              High to Low Bitterness
-            </a>
+          <li className="menu-item" onClick={sortByIBUReverse}>
+            <span className="menu-link">High to Low Bitterness</span>
           </li>
 
           {/* Bitterness Filter */}
@@ -122,7 +139,7 @@ const Sidebar = () => {
               <span id="prevPage" className="menu-title" disabled>
                 <FontAwesomeIcon icon={faArrowCircleLeft} />
               </span>
-              <span className="menu-page">Page: 1</span>
+              <span className="menu-page">Page: {page}</span>
               <span id="nextPage" className="menu-title">
                 <FontAwesomeIcon icon={faArrowCircleRight} />
               </span>

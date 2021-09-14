@@ -1,47 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { Link, Route } from 'react-router-dom';
-import { beersApi } from '../../api/beersApi';
 import Beer from '../Beer/Beer';
 import BeerDetails from '../BeerDetails/BeerDetails';
 import Spinner from '../Spinner/Spinner';
 import classes from './BeerPage.module.scss';
 
-const BeerPage = () => {
-  const perPage = 40;
-  const [page, increasePage] = useState(1);
-  const [beers, setBeers] = useState([]);
-  const [allBeers, setAllBeers] = useState([]);
-  const [statusModal, setStatusModal] = useState('close');
-  const [isDataFetched, setIsDataFetched] = useState(false);
-
-  useEffect(() => {
-    async function fetchData() {
-      const fetchedBeers = await beersApi.getBeers(page, perPage);
-      setBeers(fetchedBeers);
-      setIsDataFetched(true);
-    }
-    async function fetchAllData() {
-      const fetchedBeers = await beersApi.getAllBeers();
-      setAllBeers(fetchedBeers);
-    }
-    fetchData();
-    fetchAllData();
-    return () => {
-      setIsDataFetched(false);
-    };
-  }, [page]);
-
-  const fetchMoreData = () => {
-    async function fetchData() {
-      const fetchedBeers = await beersApi.getBeers(page + 1, perPage);
-      const concated = beers.concat(fetchedBeers);
-      setBeers(concated);
-      increasePage(page + 1);
-    }
-    fetchData();
-  };
-
+const BeerPage = ({
+  beers,
+  isDataFetched,
+  fetchMoreData,
+  setStatusModal,
+  allBeers,
+  statusModal,
+  page,
+}) => {
   return (
     <div>
       {isDataFetched ? (
@@ -49,9 +22,9 @@ const BeerPage = () => {
           <InfiniteScroll
             dataLength={beers.length}
             next={fetchMoreData}
-            hasMore={true}
+            hasMore={page >= 5 ? false : true}
             loader={<Spinner />}
-            className={classes.beersWrapper}
+            className={classes.beersInfinityWrapper}
           >
             {beers.map((beer) => (
               <Link

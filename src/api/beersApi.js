@@ -17,8 +17,20 @@ export const beersApi = {
   // get all beers
   async getAllBeers() {
     let beersData = [];
-    for (let i = 1; i < 6; i++) {
+    for (let i = 1; i < 5; i++) {
       const response = await instance.get(`/beers?page=${i}&per_page=80`);
+      beersData = beersData.concat(response.data);
+    }
+    return beersData;
+  },
+
+  // get Search beers
+  async getSearchBeers(searchTerm) {
+    let beersData = [];
+    for (let i = 1; i < 5; i++) {
+      const response = await instance.get(
+        `/beers?page=${i}&per_page=80&beer_name=${searchTerm}`
+      );
       beersData = beersData.concat(response.data);
     }
     return beersData;

@@ -21,7 +21,10 @@ const Beer = ({
           }}
         >
           <div className={classes.imgWrapper}>
-            <img src={imageUrl} alt={imageUrl} />
+            <img
+              src={imageUrl || 'https://i.imgur.com/ZNLvABM.png'}
+              alt={imageUrl}
+            />
           </div>
           <div className={classes.detailsWrapper}>
             <div className={classes.beerName}>
@@ -42,7 +45,7 @@ const Beer = ({
             style={{ padding: '20px', height: '280px' }}
           >
             <div className={classes.imgWrapper}>
-              <img src={imageUrl} alt={imageUrl} />
+              <img src={imageUrl || 'https://i.imgur.com/ZNLvABM.png'} alt={imageUrl} />
             </div>
             <div className={classes.detailsWrapper}>
               <div className={classes.beerName}>

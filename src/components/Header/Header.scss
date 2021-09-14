@@ -103,13 +103,13 @@
     display: block;
   }
 
-  burgerMenu {
+  &-menu {
     position: relative;
     width: 24px;
     height: 4px;
     margin: 10px 0;
     border-radius: 4px;
-    background-color: $color-white;
+    background: $color-white;
     transition: all 0.35s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     &:before,
@@ -120,7 +120,7 @@
       width: 24px;
       height: 4px;
       border-radius: 4px;
-      background-color: $color-white;
+      background: $color-white;
       transition: all 0.35s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     }
 
@@ -138,30 +138,30 @@
   }
 
   &:hover {
-    .burgerMenu:before,
-    .burgerMenu:after {
+    .burger-menu:before,
+    .burger-menu:after {
       width: 24px;
     }
   }
 
   &.active {
-    .burgerMenu {
+    .burger-menu {
       background: none;
     }
-    .burgerMenu:before,
-    .burgerMenu:after {
+    .burger-menu:before,
+    .burger-menu:after {
       top: 0;
       width: 24px;
       -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
       transform: rotate(45deg);
     }
-    .burgerMenu:after {
+    .burger-menu:after {
       -webkit-transform: rotate(-45deg);
       -ms-transform: rotate(-45deg);
       transform: rotate(-45deg);
     }
-    .burgerMenu:hover {
+    .burger-menu:hover {
       -webkit-transform: scale(1.2);
       -ms-transform: scale(1.2);
       transform: scale(1.2);

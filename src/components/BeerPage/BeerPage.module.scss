@@ -1,4 +1,4 @@
-.beersWrapper {
+.beersInfinityWrapper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-content: space-between;
@@ -17,16 +17,13 @@
 }
 
 @media (max-width: 800px) {
-  .beersWrapper {
+  .beersInfinityWrapper {
     grid-template-columns: 1fr 1fr !important;
   }
 }
 @media (max-width: 510px) {
-  .beersWrapper {
+  .beersInfinityWrapper {
     grid-template-columns: 1fr !important;
-    -webkit-box-shadow: 0px 0px 10px 0px rgba(230, 230, 230, 1);
-    -moz-box-shadow: 0px 0px 10px 0px rgba(230, 230, 230, 1);
-    box-shadow: 0px 0px 10px 0px rgba(230, 230, 230, 1);
     padding: 10px;
   }
 }

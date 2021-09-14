@@ -25,9 +25,9 @@ body,
 html {
   height: 100%;
   width: 100%;
+  background-color: $background-color;
   font-family: 'Open Sans', sans-serif;
   color: $text-color;
-  background-color: $background-color;
   font-size: 1rem;
   font-weight: normal;
   line-height: 1.5;
@@ -47,6 +47,7 @@ button {
 
 // Body Content
 .mainSite {
+  position: relative;
   max-width: 100%;
   height: auto;
   z-index: 1;
@@ -140,23 +141,23 @@ button {
   text-rendering: optimizeLegibility;
 }
 
-.App {
-  display: grid;
-  justify-content: center;
+// .App {
+//   display: grid;
+//   justify-content: center;
 
-  .container {
-    width: 800px;
-  }
-}
+//   .container {
+//     width: 800px;
+//   }
+// }
 
-@media (max-width: 800px) {
-  .container {
-    width: 500px !important;
-  }
-}
+// @media (max-width: 800px) {
+//   .container {
+//     width: 500px !important;
+//   }
+// }
 
-@media (max-width: 510px) {
-  .container {
-    width: 90vw !important;
-  }
-}
+// @media (max-width: 510px) {
+//   .container {
+//     width: 90vw !important;
+//   }
+// }

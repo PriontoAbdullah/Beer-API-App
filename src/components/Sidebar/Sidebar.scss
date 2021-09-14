@@ -3,7 +3,7 @@
 
 // Side Nav Bar
 .sideNav {
-  position: absolute;
+  position: relative;
   display: block;
   top: 0;
   left: 0;
@@ -12,9 +12,10 @@
   z-index: 3;
   background: $color-black;
   position: fixed;
+  transition: all 0.5s ease;
 
   @include mediumScreen {
-    z-index: 2;
+    z-index: 10;
   }
 
   .menu {
@@ -38,12 +39,21 @@
         width: 2rem;
         height: 2.5rem;
       }
+
+      span {
+        cursor: pointer;
+      }
+
+      @include mediumScreen {
+        font-size: 1.2rem;
+      }
     }
 
     &-title {
       color: $color-primary;
       font-size: 1.2rem;
       font-weight: 600;
+      cursor: pointer;
 
       span {
         margin-right: 0.5rem;
@@ -79,6 +89,7 @@
       opacity: 0.7;
       color: $color-white;
       transition: all 0.35s ease;
+      cursor: pointer;
 
       &:hover {
         opacity: 1;
@@ -90,5 +101,26 @@
       margin-top: 4rem;
       cursor: pointer;
     }
+
+    .mobileMenu {
+      display: none;
+
+      @media all and (max-width: 768px) {
+        display: inline-block;
+        margin-left: 55px;
+        text-align: right;
+        cursor: pointer;
+        color: white;
+        left: 0;
+      }
+    }
   }
+}
+
+.isMobileOpen {
+  transform: translateX(-14rem);
+}
+
+.isMobileClosed {
+  transform: translateX(0);
 }

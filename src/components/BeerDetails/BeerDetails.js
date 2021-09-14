@@ -70,7 +70,7 @@ const BeerDetails = ({ allBeers, statusModal, setStatusModal }) => {
           {isDataFetched ? (
             <div className={classes.details}>
               <div className={classes.beerImgWrapper}>
-                <img src={beer.image_url} alt="beer" />
+                <img src={beer.image_url || 'https://i.imgur.com/ZNLvABM.png'} alt="beer" />
               </div>
               <div className={classes.beerDetailsWrapper}>
                 <div className={classes.beerName}>
