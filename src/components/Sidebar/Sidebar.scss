@@ -11,6 +11,7 @@
   width: 16rem;
   z-index: 3;
   background: $color-black;
+  position: fixed;
 
   @include mediumScreen {
     z-index: 2;
@@ -20,7 +21,7 @@
     position: fixed;
     top: 0;
     bottom: 0;
-    width: (16rem - 60);
+    width: 16rem;
     margin: 0;
     padding-left: 1.5rem;
     overflow: auto;
@@ -62,11 +63,11 @@
     }
 
     &-page {
-      font-size: 1.2rem;
+      font-size: 1rem;
       font-weight: 500;
-      letter-spacing: 0.2rem;
+      letter-spacing: 0.1rem;
       color: $color-light;
-      padding: 0 1.3rem;
+      padding: 0 2rem;
     }
 
     &-link {

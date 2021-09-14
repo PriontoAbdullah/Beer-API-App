@@ -1,30 +1,46 @@
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import './Header.scss';
+import classes from './Header.module.scss';
 
 const Header = () => {
+  const [width, setWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [width]);
+
   return (
-    <header>
-      <div className="burger" id="burger">
-        <div className="burger-menu"></div>
+    <header
+      className={`${
+        window.matchMedia('(max-width: 510px)').matches
+          ? classes.mobileTop
+          : null
+      }`}
+    >
+      {/* Burger Menu */}
+      <div className={classes.burger} id="burger">
+        <div className={classes.burgerMenu}></div>
       </div>
 
-      <section className="navbar">
+      <section className={classes.navbar}>
         <Link to="/">
-          <span className="navbar-title">Let's drink beer!</span>{' '}
+          <span className={classes.navbarTitle}>Let's drink beer!</span>
         </Link>
 
         {/* Search bar  */}
-        <div className="searchbar">
+        <div className={classes.searchbar}>
           <input
             type="text"
-            className="active"
+            className={classes.active}
             placeholder="Search Beers..."
             name="search"
           />
-          <div className="icon">
+          <div className={classes.icon}>
             <span>
               <FontAwesomeIcon icon={faSearch} />
             </span>

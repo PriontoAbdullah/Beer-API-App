@@ -1,4 +1,9 @@
-import { faBeer, faWineBottle } from '@fortawesome/free-solid-svg-icons';
+import {
+  faArrowCircleLeft,
+  faArrowCircleRight,
+  faBeer,
+  faWineBottle,
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import logo from '../../images/logo.png';
@@ -115,11 +120,11 @@ const Sidebar = () => {
           <div className="pagination">
             <li className="menu-item">
               <span id="prevPage" className="menu-title" disabled>
-                <i className="fas fa-arrow-circle-left"></i>
+                <FontAwesomeIcon icon={faArrowCircleLeft} />
               </span>
               <span className="menu-page">Page: 1</span>
               <span id="nextPage" className="menu-title">
-                <i className="fas fa-arrow-circle-right"></i>
+                <FontAwesomeIcon icon={faArrowCircleRight} />
               </span>
             </li>
           </div>

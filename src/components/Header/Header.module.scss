@@ -2,17 +2,24 @@
 @import '../partials/mixins';
 
 // Header
+
+.mobileTop {
+  margin-bottom: 125px;
+}
+
 .navbar {
   background-color: $color-secondary;
   position: fixed;
+  top: 0;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 3.75rem;
   padding-right: 17rem;
+  z-index: 100;
 
-  &-title {
+  .navbarTitle {
     float: left;
     display: block;
     color: $color-white;
@@ -96,7 +103,7 @@
     display: block;
   }
 
-  &-menu {
+  burgerMenu {
     position: relative;
     width: 24px;
     height: 4px;
@@ -131,30 +138,30 @@
   }
 
   &:hover {
-    .burger-menu:before,
-    .burger-menu:after {
+    .burgerMenu:before,
+    .burgerMenu:after {
       width: 24px;
     }
   }
 
   &.active {
-    .burger-menu {
+    .burgerMenu {
       background: none;
     }
-    .burger-menu:before,
-    .burger-menu:after {
+    .burgerMenu:before,
+    .burgerMenu:after {
       top: 0;
       width: 24px;
       -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
       transform: rotate(45deg);
     }
-    .burger-menu:after {
+    .burgerMenu:after {
       -webkit-transform: rotate(-45deg);
       -ms-transform: rotate(-45deg);
       transform: rotate(-45deg);
     }
-    .burger-menu:hover {
+    .burgerMenu:hover {
       -webkit-transform: scale(1.2);
       -ms-transform: scale(1.2);
       transform: scale(1.2);
