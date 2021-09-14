@@ -3,6 +3,10 @@
 
 From a open-source REST API of different kinds of beer using HTML, CSS and Javascript to read the API and display it in an organized way. In addition, add in some sort of sorting, searching mechanic to the front-end.
 
+## Live Links
+
+- [https://beer-api-app.netlify.app/](https://beer-api-app.netlify.app/)
+
 
 ## API Links
 
@@ -38,3 +42,18 @@ From a open-source REST API of different kinds of beer using HTML, CSS and Javas
 | `ebc_lt`      | `number` | Returns all beers with EBC less than the supplied number|
 
 
+## How To Run
+
+> ### Install
+``` 
+ npm install
+```
+> ### Build
+``` 
+ npm run build
+```
+> ### Start
+
+``` 
+ npm start
+```
