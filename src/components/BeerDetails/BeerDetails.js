@@ -63,14 +63,19 @@ const BeerDetails = ({ allBeers, statusModal, setStatusModal }) => {
   }
 
   return (
+    // Beer Details Modal
     <div className={`${statusModal === 'open' ? 'visible' : 'hide'}`}>
       <div className={classes.overlay} onClick={closeModal}></div>
       <div className={classes.modal}>
         <div className={classes.beerDetails}>
           {isDataFetched ? (
+            // Beer Details
             <div className={classes.details}>
               <div className={classes.beerImgWrapper}>
-                <img src={beer.image_url || 'https://i.imgur.com/ZNLvABM.png'} alt="beer" />
+                <img
+                  src={beer.image_url || 'https://i.imgur.com/ZNLvABM.png'}
+                  alt="beer"
+                />
               </div>
               <div className={classes.beerDetailsWrapper}>
                 <div className={classes.beerName}>
@@ -82,6 +87,8 @@ const BeerDetails = ({ allBeers, statusModal, setStatusModal }) => {
                 <div className={classes.separatorLine}>
                   <span></span>
                 </div>
+
+                {/* Beer ingredients */}
                 <div className={classes.beerStandards}>
                   <h3>
                     <span>Ibu:</span>
@@ -110,10 +117,12 @@ const BeerDetails = ({ allBeers, statusModal, setStatusModal }) => {
               </div>
             </div>
           ) : (
+            // Loading spinner
             <div className={classes.spinnerBeerWrapper}>
               <Spinner />
             </div>
           )}
+          {/* Suggested Beer Data */}
           <div className={classes.recommendation}>
             <div>
               <h3>You might also like:</h3>
@@ -129,6 +138,7 @@ const BeerDetails = ({ allBeers, statusModal, setStatusModal }) => {
                         beer.id === recBeersArrayOfId[2]
                       );
                     })
+                    // Get suggested 3 beers
                     .map((beer) => (
                       <Link key={beer.id} to={`/details/${beer.id}`}>
                         <Beer
@@ -143,6 +153,7 @@ const BeerDetails = ({ allBeers, statusModal, setStatusModal }) => {
                 </div>
               </div>
             ) : (
+              // Loading spinner
               <div className={classes.spinner}>
                 <Spinner />
               </div>

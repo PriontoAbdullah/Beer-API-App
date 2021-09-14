@@ -31,6 +31,7 @@ html {
   font-size: 1rem;
   font-weight: normal;
   line-height: 1.5;
+  scroll-behavior: smooth;
 }
 
 a,
@@ -72,7 +73,6 @@ button {
     z-index: 2;
     color: $color-black;
     background-color: $background-color;
-    box-shadow: $box-shadow;
     transition: all 0.35s ease;
   }
 

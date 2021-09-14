@@ -27,7 +27,7 @@
     padding-left: 1.5rem;
     overflow: auto;
 
-    &-logo {
+    .menuLogo {
       display: flex;
       align-items: center;
       color: $color-secondary;
@@ -40,8 +40,9 @@
         height: 2.5rem;
       }
 
-      span {
+      a {
         cursor: pointer;
+        color: $color-secondary;
       }
 
       @include mediumScreen {
@@ -49,7 +50,7 @@
       }
     }
 
-    &-title {
+    .menuTitle {
       color: $color-primary;
       font-size: 1.2rem;
       font-weight: 600;
@@ -57,7 +58,8 @@
 
       span {
         margin-right: 0.5rem;
-        margin-top: 1rem;
+        margin-top: 0.5rem;
+        display: inline-block;
       }
 
       &:hover {
@@ -66,13 +68,13 @@
       }
     }
 
-    &-item {
+    .menuItem {
       padding: 0;
       margin: 0.5rem auto;
       transition: all 0.35s ease;
     }
 
-    &-page {
+    .menuPage {
       font-size: 1rem;
       font-weight: 500;
       letter-spacing: 0.1rem;
@@ -80,7 +82,7 @@
       padding: 0 2rem;
     }
 
-    &-link {
+    .menuLink {
       display: block;
       font-family: inherit;
       font-size: 1rem;
@@ -98,8 +100,12 @@
     }
 
     .pagination {
-      margin-top: 4rem;
+      margin-top: 0.1rem;
       cursor: pointer;
+
+      .menuPage {
+        padding: 0 2.5rem;
+      }
     }
 
     .mobileMenu {
@@ -112,6 +118,32 @@
         cursor: pointer;
         color: white;
         left: 0;
+      }
+    }
+
+    .rangeSlider {
+      max-width: 85%;
+      padding-top: 1.2rem;
+
+      .rangeText {
+        padding-left: 3rem;
+        text-align: center;
+        font-size: 0.9rem;
+        color: $color-white;
+      }
+
+      // custom styles for input range
+      .input-range__label-container {
+        color: $background-color !important;
+        font-family: 'Open Sans', sans-serif !important;
+      }
+
+      .input-range__track--active {
+        background-color: $color-primary !important;
+      }
+
+      .input-range__slider {
+        background-color: $color-primary !important;
       }
     }
   }

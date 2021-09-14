@@ -1,3 +1,6 @@
+@import '../partials/variables';
+@import '../partials/mixins';
+
 .spinner {
   // position: fixed;
   // bottom: 20px;
@@ -6,4 +9,18 @@
   display: grid;
   justify-content: center;
   align-content: center;
+}
+
+// custom styles for input range
+.input-range__label-container {
+  color: $background-color !important;
+  font-family: 'Open Sans', sans-serif !important;
+}
+
+.input-range__track--active {
+  background-color: $color-primary !important;
+}
+
+.input-range__slider {
+  background-color: $color-primary !important;
 }

@@ -3,6 +3,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import { Link, Route } from 'react-router-dom';
 import Beer from '../Beer/Beer';
 import BeerDetails from '../BeerDetails/BeerDetails';
+import NotFound from '../NotFound/NotFound';
 import Spinner from '../Spinner/Spinner';
 import classes from './BeerPage.module.scss';
 
@@ -19,16 +20,18 @@ const BeerPage = ({
     <div>
       {isDataFetched ? (
         <>
+          {/* Infinity Scroll */}
           <InfiniteScroll
             dataLength={beers.length}
             next={fetchMoreData}
-            hasMore={page >= 5 ? false : true}
+            hasMore={page >= 4 ? false : true}
             loader={<Spinner />}
             className={classes.beersInfinityWrapper}
           >
+            {/* Get all Beer data */}
             {beers.map((beer) => (
               <Link
-                key={beer.id}
+                key={Math.random() * beer.id}
                 to={`/details/${beer.id}`}
                 onClick={() => setStatusModal('open')}
               >
@@ -43,8 +46,11 @@ const BeerPage = ({
                 />
               </Link>
             ))}
+            {/* If no beers data found */}
+            {beers.length === 0 && <NotFound />}
           </InfiniteScroll>
 
+          {/* Get the beer details */}
           <Route
             exact
             render={() => (
@@ -58,6 +64,7 @@ const BeerPage = ({
           ></Route>
         </>
       ) : (
+        // Loading spinner
         <div className={classes.spinner}>
           <Spinner />
         </div>

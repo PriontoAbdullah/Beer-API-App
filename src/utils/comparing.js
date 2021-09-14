@@ -7,6 +7,7 @@ const setAreaToFetchedBeer = (
   setRecBeersArrayOfId,
   setisRecBeersFetched
 ) => {
+  // Set Area to fetched beer
   if (beer.ibu !== null || beer.abv !== null || beer.ebc !== null) {
     fetchSimilarBeer(
       beer.ibu,
@@ -16,6 +17,7 @@ const setAreaToFetchedBeer = (
       abvArea,
       ebcArea
     ).then((beersArray) => {
+      // Get Similar beer id from fetched beers
       const similarBeersId = beersArray
         .filter((b) => Number(b.id) !== Number(beer.id))
         .map((b) => {
@@ -33,6 +35,7 @@ export const findSimilarBeers = (
   setRecBeersArrayOfId,
   setisRecBeersFetched
 ) => {
+  // very low Alcohol beers
   if (
     0 < beer.ibu &&
     beer.ibu < 10 &&
@@ -41,6 +44,7 @@ export const findSimilarBeers = (
     0 < beer.ebc &&
     beer.ebc < 10
   ) {
+    // Get area fetched beer
     setAreaToFetchedBeer(
       3,
       1,
@@ -51,6 +55,7 @@ export const findSimilarBeers = (
       setisRecBeersFetched
     );
   } else if (
+    // low Alcohol beers
     10 < beer.ibu &&
     beer.ibu < 50 &&
     0 < beer.abv &&
@@ -68,6 +73,7 @@ export const findSimilarBeers = (
       setisRecBeersFetched
     );
   } else if (
+    // medium Alcohol beers
     30 < beer.ibu &&
     beer.ibu < 100 &&
     0 < beer.abv &&
@@ -85,6 +91,7 @@ export const findSimilarBeers = (
       setisRecBeersFetched
     );
   } else if (
+    // very medium high beers
     20 < beer.ibu &&
     beer.ibu < 300 &&
     5 < beer.abv &&
@@ -102,6 +109,7 @@ export const findSimilarBeers = (
       setisRecBeersFetched
     );
   } else if (
+    // very high Alcohol beers
     50 < beer.ibu &&
     beer.ibu < 300 &&
     5 < beer.abv &&
@@ -119,6 +127,7 @@ export const findSimilarBeers = (
       setisRecBeersFetched
     );
   } else {
+    // common Alcohol beers
     setAreaToFetchedBeer(
       5,
       2,

@@ -9,11 +9,19 @@ import Sidebar from './components/Sidebar/Sidebar';
 const App = () => {
   // initial states
   const perPage = 80;
-  const [page, increasePage] = useState(1);
+  let [page, increasePage] = useState(1);
   const [beers, setBeers] = useState([]);
   const [allBeers, setAllBeers] = useState([]);
   const [statusModal, setStatusModal] = useState('close');
   const [isDataFetched, setIsDataFetched] = useState(false);
+  const [valueABV, setValueABV] = useState({
+    min: 2.5,
+    max: 35.5,
+  });
+  const [valueIBU, setValueIBU] = useState({
+    min: 8,
+    max: 80,
+  });
 
   // function for scroll to top of the page
   function scrollToTop() {
@@ -24,7 +32,7 @@ const App = () => {
   const fetchMoreData = () => {
     async function fetchData() {
       const fetchedBeers = await beersApi.getBeers(
-        page === 6 ? 1 : page + 1,
+        page === 4 ? 1 : page + 1,
         perPage
       );
       const concated = beers.concat(fetchedBeers);
@@ -32,6 +40,14 @@ const App = () => {
       increasePage(page + 1);
     }
     fetchData();
+  };
+
+  // function for pagination
+  const prevPage = () => {
+    page !== 1 && increasePage(page - 1);
+  };
+  const nextPage = () => {
+    page !== 5 && increasePage(page + 1);
   };
 
   // search beer name
@@ -162,6 +178,24 @@ const App = () => {
     scrollToTop();
   };
 
+  // get all Alcohol beers shorting by slider filtering
+  useEffect(() => {
+    const abvFilterAllBeers = allBeers.filter(
+      (beer) => beer.abv >= valueABV.min && beer.abv <= valueABV.max
+    );
+    setBeers(abvFilterAllBeers);
+    scrollToTop();
+  }, [allBeers, valueABV.max, valueABV.min]);
+
+  // get all  Bitterness beers shorting by slider filtering
+  useEffect(() => {
+    const ibuFilterAllBeers = allBeers.filter(
+      (beer) => beer.ibu >= valueIBU.min && beer.ibu <= valueIBU.max
+    );
+    setBeers(ibuFilterAllBeers);
+    scrollToTop();
+  }, [allBeers, valueIBU.max, valueIBU.min]);
+
   // get all beers from api with hooks
   useEffect(() => {
     // function for fetching data per page
@@ -173,10 +207,10 @@ const App = () => {
 
     // unction for all fetching data
     async function fetchAllData() {
-      const fetchedBeers = await beersApi.getAllBeers();
-      setAllBeers(fetchedBeers);
+      const fetchedAllBeers = await beersApi.getAllBeers();
+      setAllBeers(fetchedAllBeers);
     }
-
+    // immediate call functions
     fetchData();
     fetchAllData();
 
@@ -189,6 +223,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className={classes.mainSite}>
+        {/* Sidebar */}
         <Sidebar
           allABVBeers={allABVBeers}
           sortByABV={sortByABV}
@@ -202,12 +237,20 @@ const App = () => {
           sortByMidIBU={sortByMidIBU}
           sortByLowIBU={sortByLowIBU}
           sortByHighIBU={sortByHighIBU}
+          valueABV={valueABV}
+          setValueABV={setValueABV}
+          valueIBU={valueIBU}
+          setValueIBU={setValueIBU}
+          prevPage={prevPage}
+          nextPage={nextPage}
           page={page}
         />
 
         {/* Body Content */}
         <div className={classes.mainPage}>
+          {/* Header */}
           <Header handleChange={handleChange} />
+          {/* Beer Data */}
           <BeerPage
             beers={beers}
             allBeers={allBeers}

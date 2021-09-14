@@ -4,8 +4,14 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import classes from './Header.module.scss';
 
-const Header = () => {
+const Header = ({ handleChange }) => {
   const [width, setWidth] = useState(window.innerWidth);
+
+  const refreshPage = () => {
+    window.location.reload();
+  };
+
+  // get window size
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
     window.addEventListener('resize', handleResize);
@@ -29,7 +35,9 @@ const Header = () => {
 
       <section className={classes.navbar}>
         <Link to="/">
-          <span className={classes.navbarTitle}>Let's drink beer!</span>
+          <span className={classes.navbarTitle} onClick={refreshPage}>
+            Let's drink beer!
+          </span>
         </Link>
 
         {/* Search bar  */}
@@ -39,6 +47,7 @@ const Header = () => {
             className={classes.active}
             placeholder="Search Beers..."
             name="search"
+            onChange={handleChange}
           />
           <div className={classes.icon}>
             <span>
