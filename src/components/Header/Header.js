@@ -2,7 +2,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import './Header.scss';
+import classes from './Header.module.scss';
 
 const Header = () => {
   const [width, setWidth] = useState(window.innerWidth);
@@ -17,28 +17,30 @@ const Header = () => {
   return (
     <header
       className={`${
-        window.matchMedia('(max-width: 510px)').matches ? 'mobileTop' : null
+        window.matchMedia('(max-width: 510px)').matches
+          ? classes.mobileTop
+          : null
       }`}
     >
       {/* Burger Menu */}
-      <div className="burger active" id="burger">
-        <div className="burger-menu"></div>
+      <div className={classes.burger}>
+        <div className={classes.burgerMenu}></div>
       </div>
 
-      <section className="navbar">
+      <section className={classes.navbar}>
         <Link to="/">
-          <span className="navbarTitle">Let's drink beer!</span>
+          <span className={classes.navbarTitle}>Let's drink beer!</span>
         </Link>
 
         {/* Search bar  */}
-        <div className="searchbar">
+        <div className={classes.searchbar}>
           <input
             type="text"
-            className="active"
+            className={classes.active}
             placeholder="Search Beers..."
             name="search"
           />
-          <div className="icon">
+          <div className={classes.icon}>
             <span>
               <FontAwesomeIcon icon={faSearch} />
             </span>
